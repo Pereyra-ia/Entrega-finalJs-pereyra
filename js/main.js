@@ -202,41 +202,14 @@ const Menu = (numUsuario) => {
     }
     return true;
 };
-/*const mostrarMascotas = (idUsuario) => {
-
-
-    const mascotasUsuario = [];//Mascotas por ID usuario actual
-    for (const mascota of mascotas) {
-        if (mascota.idUsuario === idUsuario) {
-            mascotasUsuario.push(mascota);
-        }
-    }
-
-
-    let datosAMostrar = '';
-    for (let i = 0; i < mascotasUsuario.length; i++) {
-        const mascotaDelUsuario = mascotasUsuario[i];
-        const turno = turnos.find(turno => turno.idMascota === mascotaDelUsuario.id) || {};
-        if (turno.fechaTurno) {
-            datosAMostrar += `Para ${mascotaDelUsuario.nombreMascota} tenés un turno el ${turno.fechaTurno} a las ${turno.horaTurno} para ${turno.servicio}\n`;
-        }
-    }
-    alert(`Los turnos a tu nombre son:\n ${datosAMostrar}`);
-    
-};*/
-
 // pacientes del usuario
 const mostrarpacientes = (numUsuario) => {
-
-
     const pacientesUsuario = [];
     for (const paciente of pacientes) {
         if (paciente.numUsuario === numUsuario) {
             pacientesUsuario.push(paciente);
         }
     }
-
-
     let datosAMostrar = '';
     for (let i = 0; i < pacientesUsuario.length; i++) {
         const pacienteDelUsuario = pacientesUsuario[i];
@@ -254,8 +227,8 @@ const mostrarTurnos = (numUsuario) => {
     const turnosUsuario = [];
 
     for (const turno of turnos) {
-        const mascotaDelUsuario = mascotas.find(mascotaDelUsuario => mascotaDelUsuario.id === turno.idMascota);
-        if (mascotaDelUsuario && mascotaDelUsuario.numUsuario === numUsuario) {
+        const pacienteDelUsuario = pacientes.find(pacienteDelUsuario => pacienteDelUsuario.id === turno.idpaciente);
+        if (pacienteDelUsuario && pacienteDelUsuario.numUsuario === numUsuario) {
             turnosUsuario.push(turno);
         }
     }
@@ -263,18 +236,18 @@ const mostrarTurnos = (numUsuario) => {
     let datosAMostrar = '';
     for (let i = 0; i < turnosUsuario.length; i++) {
         const turno = turnosUsuario[i];
-        const mascotaDelUsuario = mascotas.find(mascotaDelUsuario => mascotaDelUsuario.id === turno.idMascota);
-        datosAMostrar += `Para ${mascotaDelUsuario.nombreMascota} tenés el turno número *${turno.id}* el ${turno.fechaTurno} a las ${turno.horaTurno} para ${turno.servicio}\n`;
+        const pacienteDelUsuario = pacientes.find(pacienteDelUsuario => pacienteDelUsuario.id === turno.idpaciente);
+        datosAMostrar += `Para ${pacienteDelUsuario.nomPaciente} tenés el turno número *${turno.id}* el ${turno.fechaTurno} a las ${turno.horaTurno} para ${turno.servicio}\n`;
     }
 
-    alert(`${nombreUsuario} los turnos a tu nombre son:\n ${datosAMostrar} y te vamos a avisar al número de teléfono ${telefonoUsuario}`);
+    alert(`${nomUsuario} los turnos a tu nombre son:\n ${datosAMostrar}`);
     
 };
 
 // Modificar un turno
 const modificarTurno = (numUsuario) => {
     mostrarTurnos(numUsuario);
-    idTurno = prompt("📝 Ingresá número de turno que querés modificar: 📝");
+    idTurno = prompt("Ingrese numero de turno que quiera modificar: ");
     if (idTurno === null) {
         finPrograma();
         return;
@@ -282,17 +255,17 @@ const modificarTurno = (numUsuario) => {
     idTurno = parseInt(idTurno);
     const turno = turnos.find(turno => turno.id === idTurno);
     if (turno) {
-        nuevaFecha = prompt("📅 Ingresá la nueva fecha (dd/mm/aaaa): 📅");
+        nuevaFecha = prompt(" Ingrese la nueva fecha (dd/mm/aaaa): ");
         if (nuevaFecha === null) {
             finPrograma();
             return;
         }
-        nuevaHora = prompt("🕒 Ingresá la nueva hora (HH:MM): 🕒");
+        nuevaHora = prompt(" Ingrese la nueva hora (HH:MM): ");
         if (nuevaHora === null) {
             finPrograma();
             return;
         }
-        nuevoServicio = elegirServicio("la mascota");
+        nuevoServicio = elegirServicio();
         if (nuevoServicio === null) {
             finPrograma();
             return;
@@ -301,27 +274,27 @@ const modificarTurno = (numUsuario) => {
         turno.fechaTurno = nuevaFecha;
         turno.horaTurno = nuevaHora;
         turno.servicio = nuevoServicio;
-        alert("😊 📝 El turno fue modificado 😊 📝");
+        alert("turno modificado exitosamente");
     } else {
-        alert("😊 El número de turno no fue encontrado, por favor revisá tu respuesta 😊");
+        alert("numero de turno no encontrado, ingrese el numero correcto");
     }
 };
 
 // Eliminar un turno
 const eliminarTurno = (numUsuario) => {
     mostrarTurnos(numUsuario);
-    idTurno = prompt("🗑️ Ingresá número del turno que querés eliminar: 🗑️");
+    idTurno = prompt(" Ingrese numero del turno que quiere eliminar: ");
     if (idTurno === null) {
-        alert("Cancelaste la eliminación del turno, volvemos al menú");
+        alert("Cancelo la eliminación del turno, volvemos al menú");
         return;
     }
-    idTurno = parseInt(idTurno);
+    idTurno = prompt(" Ingrese numero del turno que quiere eliminar: ");
     const index = turnos.findIndex(turno => turno.id === idTurno);
     if (index !== -1) { 
         turnos.splice(index, 1);
-        alert("🗑️ Tu turno fue eliminado con éxito 🗑️");
+        alert("turno eliminado exitosamente");
     } else {
-        alert("😊 Oops! hubo un error en el número de turno que ingresaste no fue encontrado 😊");
+        alert("el número de turno que ingresaste no es valido");
     }
 };
 
