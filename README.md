@@ -1,1 +1,1 @@
-Primera pre-Entrega del proyecto final de Java Script.
+Segunda pre-Entrega del proyecto final de Java Script.
