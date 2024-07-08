@@ -124,6 +124,7 @@ main {
 
 .formulario__mensaje {
   display: none;
+  font-size: small;
   padding: 4px;
   border-radius: 5px;
   background: #f00;
