@@ -146,10 +146,22 @@ main {
   border: 1px solid #ee0f0f;
   
 }
-.container .table{
-  display: block;
+h3{
+  margin: 10px;
 }
+.container {
+  text-align: center;
+  align-items: center;
+}
+.container .table {
+   font-family: Arial, Helvetica, sans-serif;
+   text-align: center;
+   align-items: center;
+}
+.container .table thead tr th{
+    padding: 10px;
 
+}
 @media screen and (max-width:720px) {
   .formulario {
       grid-template-columns: 1fr;

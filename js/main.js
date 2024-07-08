@@ -127,6 +127,7 @@ function addpaciente(pnombre,papellido,pdni,pdolencia,pfecha,phora){
         hora : phora
     };
     PacientesList.push(nuevoPaciente);
+    localStoragePacientes(PacientesList);
 }
 document.querySelector('#btnSave').addEventListener('click',savepaciente);
 imprimirpaciente();
@@ -144,6 +145,12 @@ function savepaciente(){
     imprimirpaciente();
 }
 function getpaciente(){
+    var storedList = localStorage.getItem('localpacientes');
+    if(storedList == null){
+        PacientesList = [];
+    }else{
+        PacientesList = JSON.parse(storedList);
+    }
     return PacientesList;
 }
 function imprimirpaciente(){
@@ -171,4 +178,8 @@ function imprimirpaciente(){
         horaCell.innerHTML = list[i].hora;
 
     }
+}
+
+function localStoragePacientes(plist){
+    localStorage.setItem('localpacientes',JSON.stringify(plist));
 }
