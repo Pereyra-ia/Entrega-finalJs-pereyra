@@ -11,11 +11,13 @@ for (const turnos of turnoslist){
 const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // campo usuario acepte letras minuscula
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // letras con o sin acento y espacios
-    password: /^.{4,12}$/, //minimo de 4 digitos y maximo de 12 
+    apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+    dolencia: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+    //password: /^.{4,12}$/, minimo de 4 digitos y maximo de 12 
     correo:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //acepta todo menos caracteres especiales
-    telefono: /^\d{7,14}$/  //minimo 7 y maximo 14 numeros
+    telefono: /^\d{7,14}$/,  //minimo 7 y maximo 14 numeros
+    dni: /^\d{7,9}$/,
 }
-let pacientes = document.getElementById("pacientes")
 
 
 const $formulario = document.getElementById("formulario");
@@ -24,8 +26,13 @@ const $inputs = document.querySelectorAll("#formulario input")
 
 const campos = {
     usuario: false,
+    nombre: false,
     correo: false,
-    telefono: false
+    telefono: false,
+    dni: false,
+    apellido: false,
+    dolencia: false,
+
 }
 
 const validarFormulario = (e) => {
@@ -33,13 +40,26 @@ const validarFormulario = (e) => {
         case "usuario":
             validarCampo(expresiones.usuario, e.target, "usuario");
         break;
+        case "nombre":
+            validarCampo(expresiones.nombre, e.target, "nombre");
+        break;
         case "correo":
             validarCampo(expresiones.correo, e.target, "correo");
         break;
         case "telefono":
             validarCampo(expresiones.telefono, e.target, "telefono");
         break;
+        case "dni":
+            validarCampo(expresiones.dni, e.target, "dni");
+        break;
+        case "apellido":
+            validarCampo(expresiones.apellido, e.target, "apellido");
+        break;
+        case "dolencia":
+            validarCampo(expresiones.dolencia, e.target, "dolencia");
+        break;
     }
+    
 }
 
 const validarCampo = (expresion, input, campo) => {
@@ -50,7 +70,6 @@ const validarCampo = (expresion, input, campo) => {
         document.querySelector(`#grupo__${campo} i`).classList.add("fa-check-circle");
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove("formulario__input-error-activo");
         campos[campo] = true;
-        console.log("Funciona");
     } else {
            document.getElementById(`grupo__${campo}`).classList.add("formulario__grupo-incorrecto");
            document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-correcto");
@@ -58,7 +77,6 @@ const validarCampo = (expresion, input, campo) => {
            document.querySelector(`#grupo__${campo} i`).classList.remove("fa-check-circle");
            document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add("formulario__input-error-activo");
            campos[campo] = false;
-           console.log("Funciona");
         }
 }
 
@@ -72,7 +90,6 @@ $formulario.addEventListener("submit", (e) => {
 
     const $terminos = document.getElementById("terminos");
     if(campos.usuario && campos.correo && campos.telefono) {
-        // formulario.reset();
 
         document.getElementById("formulario__mensaje-exito").classList.add("formulario__mensaje-exito-activo");
         setTimeout(() => {
@@ -93,3 +110,5 @@ $formulario.addEventListener("submit", (e) => {
         document.getElementById("formulario__mensaje").classList.add("formulario__mensaje-activo");
     }
 });
+
+
