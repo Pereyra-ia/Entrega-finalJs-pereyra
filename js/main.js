@@ -112,3 +112,63 @@ $formulario.addEventListener("submit", (e) => {
 });
 
 
+
+
+
+var PacientesList= [];
+
+function addpaciente(pnombre,papellido,pdni,pdolencia,pfecha,phora){
+    var nuevoPaciente={
+        nombre : pnombre,
+        apellido : papellido,
+        dni : pdni,
+        dolencia : pdolencia,
+        fecha : pfecha,
+        hora : phora
+    };
+    PacientesList.push(nuevoPaciente);
+}
+document.querySelector('#btnSave').addEventListener('click',savepaciente);
+imprimirpaciente();
+function savepaciente(){
+    var snombre = document.querySelector("#nombre-paciente").value,
+        sapellido = document.querySelector("#apellido-paciente").value,
+        sdni = document.querySelector("#dni-paciente").value,
+        sdolencia = document.querySelector("#dolencia-paciente").value,
+        sfecha = document.querySelector("#turno-fecha").value,
+        shora = document.querySelector("#turno-hora").value;
+
+    
+    
+    addpaciente(snombre,sapellido,sdni,sdolencia,sfecha,shora);  
+    imprimirpaciente();
+}
+function getpaciente(){
+    return PacientesList;
+}
+function imprimirpaciente(){
+    var list= getpaciente(),
+        tbody = document.querySelector('#tabla-pacientes tbody');
+    tbody.innerHTML = '';
+
+    for (var i = 0 ; i < list.length; i ++){
+        var row = tbody.insertRow(i);
+        var nombreCell = row.insertCell(0);
+            apellidoCell = row.insertCell(1);
+            dniCell = row.insertCell(2);
+            dolenciaCell = row.insertCell(3);
+            fechaCell = row.insertCell(4);
+            horaCell = row.insertCell(5);
+
+
+
+
+        nombreCell.innerHTML = list[i].nombre;
+        apellidoCell.innerHTML = list[i].apellido;
+        dniCell.innerHTML = list[i].dni;
+        dolenciaCell.innerHTML = list[i].dolencia;
+        fechaCell.innerHTML = list[i].fecha;
+        horaCell.innerHTML = list[i].hora;
+
+    }
+}

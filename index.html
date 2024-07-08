@@ -76,7 +76,7 @@
                 <div class="formulario__grupo" id="grupo__apellido">
                     <label class="formulario__label">apellidos</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="apellido" id="Apellidos" placeholder="Apellido/s">
+                        <input type="text" class="formulario__input" name="apellido" id="apellido-paciente" placeholder="Apellido/s">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">El apellido debe tener minimo 4 caracteres</p>
@@ -84,7 +84,7 @@
                 <div class="formulario__grupo" id="grupo__dni">
                     <label class="formulario__label">dni</label>
                     <div class="formulario__grupo-input">
-                        <input type="dni" class="formulario__input" name="dni" id="dni" placeholder="12345678">
+                        <input type="dni" class="formulario__input" name="dni" id="dni-paciente" placeholder="12345678">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">El número debe tener 8 digitos</p>
@@ -92,7 +92,7 @@
                 <div class="formulario__grupo" id="grupo__dolencia">
                     <label class="formulario__label">dolencia</label>
                     <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="dolencia" id="dolencia" placeholder="dolencia del paciente">
+                        <input type="text" class="formulario__input" name="dolencia" id="dolencia-paciente" placeholder="dolencia del paciente">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">la dolencia debe tener minimo 4 caracteres</p>
@@ -132,7 +132,7 @@
                 </div>
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
                     <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">El formulario se envió correctamente</p>
-                    <input class="formulario__btn" type="submit" value="guardar">
+                    <input class="formulario__btn" type="button" id="btnSave" value="guardar">
                 </div>
         </div>  
         
@@ -144,8 +144,23 @@
             <p>3.  laboratorio</p>
             <p>4.  vacunatorio</p>
             <p>5.  radiologia</p>
-            <div class="grid-items">
-
+            <div class="container">
+                <h3>- pacientes -</h3>
+                <table class="table" id="tabla-pacientes">
+                    <thead>
+                        <tr>
+                            <th>nombre</th>
+                            <th>apellido</th>
+                            <th>dni</th>
+                            <th>dolencia</th>
+                            <th>fecha</th>
+                            <th>hora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
