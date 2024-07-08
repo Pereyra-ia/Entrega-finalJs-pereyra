@@ -3,12 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!---js--->
+    <!---css-->
+    <link rel="stylesheet" href="./css/style.css">
+    <!---js-->
     <script defer src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/73f851add2.js" crossorigin="anonymous"></script>
     <!---Nombre--->
-    <title>Pagina Pereyra-ia</title>
+    <title>Clinica I-Pereyra</title>
 </head>
 <body>
-    <h1>CopyRight by Pereyra Ignacio</h1>
+    <header class="header">
+        <img src="img/icon.png" width="80" height="80" alt="logo de clinica">
+        <h1> Bienvenidos a la clinica pereyra </h1>
+    </header>
+    <!--<Main class="container-grid" >
+        <div class="grid-1">
+            <form action="#" class="formulario" id="formulario" method="post">
+                <div>
+                    <h3>- ingrese datos de usuario -</h3>
+                    <label for="nombres">nombres</label>
+                    <input type="text" name="nombre" id="nombres" placeholder="ingrese su/s nombre/s">
+                </div>
+                <div>
+                    <label for="Apellidos">apellidos</label>
+                    <input type="text" name="apellido" id="Apellidos" placeholder="ingrese su/s Apellido/s">
+                </div>
+                <div>
+                    <label for="telefono">telefono</label>
+                    <input type="text" name="telefono" id="telefono" placeholder="ingrese su telefono">
+                </div>
+                <input id="guardar-usuario" type="button" value="guardar"> 
+            </form>
+            <form action="#" method="post">
+                <div>
+                    <h3>- ingrese datos del paciente -</h3>
+                    <label for="nombres">nombre</label>
+                    <input type="text" name="nombre" id="nombre-paciente" placeholder="nombre/s">
+                </div>
+                <div>
+                    <label for="Apellidos">apellidos</label>
+                    <input type="text" name="apellido" id="Apellidos" placeholder="Apellido/s">
+                </div>
+                <div>
+                    <label for="dni">dni</label>
+                    <input type="number" name="dni" id="dni" placeholder="dni del paciente">
+                </div>
+                <div>
+                    <label for="dolencia">dolencia</label>
+                    <input type="text" name="dolencia" id="dolencia" placeholder="dolencia del paciente">
+                </div>
+                <div>
+                    <h3>- ingrese datos del turno -</h3>
+                    <label for="turno-fecha">fecha del turno</label>
+                    <input type="date" id="turno-fecha" name="turno-fecha" required="">
+                </div>
+                <div>
+                    <label for="turno-hora">hora del turno</label>
+                    <input type="time" id="turno-hora" name="turno-hora" required="">
+                </div>
+                
+                <label for="servicios">servicios</label>
+                <select name="opciones" id="servicios">
+                    <option value="">clinico</option>
+                    <option value="">traumatologo</option>
+                    <option value="">laboratorio</option>
+                    <option value="">vacunatorio</option>
+                    <option value="">radiologia</option>
+                </select>
+                <input id="guardar-paciente" type="button" value="guardar"> 
+        </div>
+        <div class="grid-2">
+            <h3>- servicios Clinica Pereyra -</h3>
+            <p>1.  Clinico especialista</p>
+            <p>2.  traumatologia</p>
+            <p>3.  laboratorio</p>
+            <p>4.  vacunatorio</p>
+            <p>5.  radiologia</p>
+            <div class="grid-items">
+
+            </div>
+        </div>
+        
+    
+    
+
+    </Main> ----->
+    <main>
+        <div class="grid-1">
+            <h3> - ingrese datos de usuario -</h3>
+            <form action="#" class="formulario" id="formulario">
+            
+                <div class="formulario__grupo" id="grupo__usuario">
+                    <label class="formulario__label">Nombre de usuario</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="ignacio24">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El usuario debe tener minimo 4 caracteres y solo se admiten números, letras y guión bajo.</p>
+                </div>
+                <div class="formulario__grupo" id="grupo__correo">
+                    <label class="formulario__label">Correo Electonico</label>
+                    <div class="formulario__grupo-input">
+                        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@ignacio.com">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El correo debe tener mÍnimo 4 caracteres y sólo se admiten números, letras y guión bajo.</p>
+                </div>
+                <div class="formulario__grupo" id="grupo__telefono">
+                    <label class="formulario__label">Teléfono</label>
+                    <div class="formulario__grupo-input">
+                        <input type="telefono" class="formulario__input" name="telefono" id="telefono" placeholder="0123456789">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El número debe tener 10 digitos</p>
+                </div>
+                <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="fas fa-exclamation-circle"> <b>Error:</b> Debes completar todos los campos</i></p>
+                </div>
+    
+    
+                <div class="formulario__grupo formulario__grupo-btn-enviar">
+                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">El formulario se envió correctamente</p>
+                    <input class="formulario__btn" type="submit" value="guardar">
+                </div>
+            </form>
+
+
+
+
+
+            <form action="#" class="formulario" id="formulario">
+                <div class="formulario__grupo">
+                    <h3>- ingrese datos del paciente -</h3>
+                    <label class="formulario__label">nombre</label>
+                    <input type="text" class="formulario__input" name="nombre" id="nombre-paciente" placeholder="nombre/s">
+                </div>
+                <div class="formulario__grupo">
+                    <label class="formulario__label">apellidos</label>
+                    <input type="text" class="formulario__input" name="apellido" id="Apellidos" placeholder="Apellido/s">
+                </div>
+                <div class="formulario__grupo" id="grupo__dni">
+                    <label class="formulario__label">dni</label>
+                    <div class="formulario__grupo-input">
+                        <input type="dni" class="formulario__input" name="dni" id="dni" placeholder="44002894">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="formulario__input-error">El número debe tener 8 digitos</p>
+                </div>
+                <div class="formulario__grupo">
+                    <label class="formulario__label">dni</label>
+                    <input type="text" class="formulario__input" name="dni" id="dni" placeholder="dni del paciente">
+                </div>
+                <div class="formulario__grupo">
+                    <label class="formulario__label">dolencia</label>
+                    <input type="text" class="formulario__input" name="dolencia" id="dolencia" placeholder="dolencia del paciente">
+                </div>
+                <div class="formulario__grupo">
+                    <h3>- ingrese datos del turno -</h3>
+                    <label class="formulario__label">fecha del turno</label>
+                    <input type="date" class="formulario__input" id="turno-fecha" name="turno-fecha" required="">
+                </div>
+                <div class="formulario__grupo">
+                    <label class="formulario__label">hora del turno</label>
+                    <input type="time" class="formulario__input" id="turno-hora" name="turno-hora" required="">
+                </div>
+                
+                <label class="formulario__label">servicios</label>
+                <select name="opciones" id="servicios">
+                    <option value="">clinico</option>
+                    <option value="">traumatologo</option>
+                    <option value="">laboratorio</option>
+                    <option value="">vacunatorio</option>
+                    <option value="">radiologia</option>
+                </select>
+                <div class="formulario__grupo formulario__grupo-btn-enviar">
+                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">El formulario se envió correctamente</p>
+                    <input class="formulario__btn" type="submit" value="guardar">
+                </div>
+        </div>  
+        
+        
+        <div class="grid-2">
+            <h3>- servicios Clinica Pereyra -</h3>
+            <p>1.  Clinico especialista</p>
+            <p>2.  traumatologia</p>
+            <p>3.  laboratorio</p>
+            <p>4.  vacunatorio</p>
+            <p>5.  radiologia</p>
+            <div class="grid-items">
+
+            </div>
+        </div>
+    </main>
+    </div>
+    <footer class="footer">
+        <h3>Derechos de Autor © 2024 - Pereyra Ignacio Ariel. Todos los derechos reservados.</h3>
+    </footer>
+    
 </body>
 </html>
