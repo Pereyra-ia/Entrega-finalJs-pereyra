@@ -1,12 +1,4 @@
-/*
-let turnoslist  = [""]
-let turnoss = document.getElementById("turnosxd")
-for (const turnos of turnoslist){
-    let li = document.createElement("li")
-    li.innerHTML = turnos
-    turnoslist.appendChild(li)
-}
-*/
+// validacion
 
 const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // campo usuario acepte letras minuscula
@@ -113,12 +105,12 @@ $formulario.addEventListener("submit", (e) => {
 
 
 
+//agregar pacientes
 
-
-var PacientesList= [];
+let PacientesList= [];
 
 function addpaciente(pnombre,papellido,pdni,pdolencia,pfecha,phora){
-    var nuevoPaciente={
+    const nuevoPaciente={
         nombre : pnombre,
         apellido : papellido,
         dni : pdni,
@@ -132,7 +124,7 @@ function addpaciente(pnombre,papellido,pdni,pdolencia,pfecha,phora){
 document.querySelector('#btnSave').addEventListener('click',savepaciente);
 imprimirpaciente();
 function savepaciente(){
-    var snombre = document.querySelector("#nombre-paciente").value,
+    const snombre = document.querySelector("#nombre-paciente").value,
         sapellido = document.querySelector("#apellido-paciente").value,
         sdni = document.querySelector("#dni-paciente").value,
         sdolencia = document.querySelector("#dolencia-paciente").value,
@@ -145,7 +137,7 @@ function savepaciente(){
     imprimirpaciente();
 }
 function getpaciente(){
-    var storedList = localStorage.getItem('localpacientes');
+    const storedList = localStorage.getItem('localpacientes');
     if(storedList == null){
         PacientesList = [];
     }else{
@@ -154,13 +146,13 @@ function getpaciente(){
     return PacientesList;
 }
 function imprimirpaciente(){
-    var list= getpaciente(),
+    let list= getpaciente(),
         tbody = document.querySelector('#tabla-pacientes tbody');
     tbody.innerHTML = '';
 
-    for (var i = 0 ; i < list.length; i ++){
-        var row = tbody.insertRow(i);
-        var nombreCell = row.insertCell(0);
+    for (let i = 0 ; i < list.length; i ++){
+        let row = tbody.insertRow(i);
+        let nombreCell = row.insertCell(0);
             apellidoCell = row.insertCell(1);
             dniCell = row.insertCell(2);
             dolenciaCell = row.insertCell(3);
