@@ -96,7 +96,7 @@ $formulario.addEventListener("submit", (e) => {
         
         setTimeout(() => {
             location.reload();
-        }, 5000);
+        }, 3000);
 
     } else {
         document.getElementById("formulario__mensaje").classList.add("formulario__mensaje-activo");
@@ -171,7 +171,19 @@ function imprimirpaciente(){
 
     }
 }
-
+ 
 function localStoragePacientes(plist){
     localStorage.setItem('localpacientes',JSON.stringify(plist));
 }
+
+const $clear = document.getElementById("btn-clear");
+
+$clear.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    setTimeout(() => {
+        location.reload();
+    }, 3000);
+    
+});
+    
