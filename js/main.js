@@ -2,9 +2,9 @@
 
 const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // campo usuario acepte letras minuscula
-    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // letras con o sin acento y espacios
-    apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
-    dolencia: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+    nombre: /^[a-zA-ZÀ-ÿ\s]{3,20}$/, // letras con o sin acento y espacios
+    apellido: /^[a-zA-ZÀ-ÿ\s]{4,20}$/,
+    dolencia: /^[a-zA-ZÀ-ÿ\s]{4,40}$/,
     //password: /^.{4,12}$/, minimo de 4 digitos y maximo de 12 
     correo:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //acepta todo menos caracteres especiales
     telefono: /^\d{7,14}$/,  //minimo 7 y maximo 14 numeros
@@ -81,7 +81,7 @@ $formulario.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const $terminos = document.getElementById("terminos");
-    if(campos.usuario && campos.correo && campos.telefono) {
+    if(campos.usuario && campos.correo && campos.telefono && campos.nombre && campos.dni && campos.apellido && campos.dolencia) {
 
         document.getElementById("formulario__mensaje-exito").classList.add("formulario__mensaje-exito-activo");
         setTimeout(() => {
@@ -119,7 +119,10 @@ function addpaciente(pnombre,papellido,pdni,pdolencia,pfecha,phora){
         hora : phora
     };
     PacientesList.push(nuevoPaciente);
-    localStoragePacientes(PacientesList);
+    if(campos.nombre && campos.dni && campos.apellido && campos.dolencia){
+        localStoragePacientes(PacientesList);
+    }
+    
 }
 document.querySelector('#btnSave').addEventListener('click',savepaciente);
 imprimirpaciente();
